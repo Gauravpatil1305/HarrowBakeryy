@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Head from "next/head";
+import { Toaster } from "react-hot-toast";
 import "./global.css";
 
 function MyApp({ Component, pageProps }) {
@@ -13,6 +14,7 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Component {...pageProps} />
+      <Toaster />
     </Fragment>
   );
 }

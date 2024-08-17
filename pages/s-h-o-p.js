@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { useRouter } from "next/router";
+import Navbar from "../component/Navbar";
 
 const SHOP = () => {
   const router = useRouter();
@@ -8,25 +9,6 @@ const SHOP = () => {
     router.push("/");
   }, [router]);
 
-  const onFrameContainerClick = useCallback(() => {
-    router.push("/a-b-o-u-t");
-  }, [router]);
-
-  const onFrameContainerClick1 = useCallback(() => {
-    router.push("/b-l-o-g");
-  }, [router]);
-
-  const onFrameContainerClick2 = useCallback(() => {
-    router.push("/c-o-n-t-a-c-t-u-s");
-  }, [router]);
-
-  const onSearchContainerClick = useCallback(() => {
-    router.push("/log-in");
-  }, [router]);
-
-  const onBasketContainerClick = useCallback(() => {
-    router.push("/cart");
-  }, [router]);
 
   const onRadiobuttonitemContainerClick = useCallback(() => {
     const anchor = document.querySelector("[data-scroll-to='categoryText']");
@@ -41,88 +23,7 @@ const SHOP = () => {
 
   return (
     <div className="w-full relative bg-grayscale-white h-[2439px] overflow-hidden text-center text-5xl text-grayscale-white font-quicksand">
-      <div className="absolute top-[0px] left-[calc(50%_-_720px)] bg-darkorange-500 w-[1440px] h-[97px] flex flex-row items-center justify-center py-[25px] px-[66px] box-border gap-[104px] text-left text-sm font-segoe-ui">
-        <div className="flex-1 flex flex-row items-center justify-start gap-[210px]">
-          <div className="w-[115px] flex flex-row items-center justify-start gap-2">
-            <img
-              className="w-9 relative rounded-2xl h-9 object-cover"
-              alt=""
-              src="/pdf-candy--png1@2x.png"
-            />
-            <div className="flex-1 h-11 flex flex-col items-start justify-center gap-px">
-              <b className="w-[38px] relative capitalize hidden">phlox</b>
-              <div
-                className="w-[162px] relative text-5xl capitalize font-pacifico hidden cursor-pointer"
-                onClick={onCandyTextClick}
-              >
-                Harrow Bakery
-              </div>
-            </div>
-          </div>
-          <div className="w-[504px] flex flex-row items-center justify-center gap-2.5 text-lg font-quicksand">
-            <div className="flex-1 flex flex-row items-center justify-center p-2.5">
-              <img
-                className="w-[5px] relative max-w-full overflow-hidden h-[27px]"
-                alt=""
-                src="/vector-4.svg"
-              />
-            </div>
-            <div
-              className="flex-1 flex flex-row items-center justify-center p-2.5 cursor-pointer"
-              onClick={onCandyTextClick}
-            >
-              <b className="relative capitalize">home</b>
-            </div>
-            <div
-              className="flex-1 flex flex-row items-center justify-center p-2.5 cursor-pointer"
-              onClick={onFrameContainerClick}
-            >
-              <b className="relative capitalize">about</b>
-            </div>
-            <div className="flex-1 flex flex-row items-center justify-center p-2.5">
-              <b className="relative [text-decoration:underline] capitalize">
-                shop
-              </b>
-            </div>
-            <div
-              className="flex-1 flex flex-row items-center justify-center p-2.5 cursor-pointer"
-              onClick={onFrameContainerClick1}
-            >
-              <b className="relative capitalize">blog</b>
-            </div>
-            <div
-              className="flex-1 flex flex-row items-center justify-center p-2.5 cursor-pointer"
-              onClick={onFrameContainerClick2}
-            >
-              <b className="relative capitalize">contact</b>
-            </div>
-          </div>
-        </div>
-        <div className="flex-1 flex flex-row items-center justify-end gap-[22px] font-rubik">
-          <div
-            className="rounded-7xl bg-sandybrown flex flex-row items-center justify-center py-2.5 px-[26px] gap-[15px] cursor-pointer"
-            onClick={onSearchContainerClick}
-          >
-            <b className="relative capitalize">Log in</b>
-            <img
-              className="w-6 relative rounded-3xs h-6 overflow-hidden shrink-0 hidden"
-              alt=""
-              src="/search.svg"
-            />
-          </div>
-          <div
-            className="rounded-7xl bg-darkorange-800 flex flex-row items-center justify-center py-2.5 px-[26px] gap-[15px] cursor-pointer"
-            onClick={onBasketContainerClick}
-          >
-            <b className="relative capitalize">basket (0)</b>
-            <img
-              className="w-6 relative h-6 overflow-hidden shrink-0"
-              alt=""
-              src="/shopping-cart.svg"
-            />
-          </div>
-        </div>
-      </div>
+    <Navbar/>
       <b
         className="absolute top-[131px] left-[27px] text-17xl tracking-[-1.2px] leading-[72px] capitalize text-black"
         data-scroll-to="categoryText"

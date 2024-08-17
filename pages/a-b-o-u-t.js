@@ -1,32 +1,8 @@
-import { useCallback, useEffect } from "react";
-import { useRouter } from "next/router";
+import {useEffect } from "react";
+import Navbar from "../component/Navbar";
 
 const ABOUT = () => {
-  const router = useRouter();
-
-  const onCandyTextClick = useCallback(() => {
-    router.push("/");
-  }, [router]);
-
-  const onFrameContainerClick = useCallback(() => {
-    router.push("/s-h-o-p");
-  }, [router]);
-
-  const onFrameContainerClick1 = useCallback(() => {
-    router.push("/b-l-o-g");
-  }, [router]);
-
-  const onFrameContainerClick2 = useCallback(() => {
-    router.push("/c-o-n-t-a-c-t-u-s");
-  }, [router]);
-
-  const onSearchClick = useCallback(() => {
-    router.push("/log-in");
-  }, [router]);
-
-  const onBasketContainerClick = useCallback(() => {
-    router.push("/cart");
-  }, [router]);
+ 
 
   useEffect(() => {
     const scrollAnimElements = document.querySelectorAll(
@@ -59,90 +35,7 @@ const ABOUT = () => {
   }, []);
   return (
     <div className="w-full relative bg-grayscale-white h-[2602px] overflow-hidden text-left text-17xl text-black font-quicksand">
-      <div className="absolute top-[0px] left-[calc(50%_-_720px)] bg-darkorange-500 w-[1440px] h-[97px] flex flex-row items-center justify-center py-[25px] px-[66px] box-border gap-[210px] text-sm text-grayscale-white font-segoe-ui">
-        <div className="flex-1 flex flex-row items-center justify-start gap-[210px]">
-          <div className="w-[115px] flex flex-row items-center justify-start gap-2">
-            <img
-              className="w-9 relative rounded-2xl h-9 object-cover"
-              alt=""
-              src="/pdf-candy--png1@2x.png"
-            />
-            <div className="flex-1 h-11 flex flex-col items-start justify-center gap-px">
-              <b className="w-[38px] relative capitalize hidden">phlox</b>
-              <div
-                className="w-[162px] relative text-5xl capitalize font-pacifico hidden cursor-pointer"
-                onClick={onCandyTextClick}
-              >
-                Harrow Bakery
-              </div>
-            </div>
-          </div>
-          <div className="w-[504px] flex flex-row items-center justify-center gap-2.5 text-lg font-quicksand">
-            <div className="flex-1 flex flex-row items-center justify-center p-2.5">
-              <img
-                className="w-[5px] relative max-w-full overflow-hidden h-[27px]"
-                alt=""
-                src="/vector-4.svg"
-              />
-            </div>
-            <div
-              className="flex-1 flex flex-row items-center justify-center p-2.5 cursor-pointer"
-              onClick={onCandyTextClick}
-            >
-              <b className="relative capitalize">home</b>
-            </div>
-            <div className="flex-1 flex flex-row items-center justify-center p-2.5">
-              <b className="relative [text-decoration:underline] capitalize">
-                about
-              </b>
-            </div>
-            <div
-              className="flex-1 flex flex-row items-center justify-center p-2.5 cursor-pointer"
-              onClick={onFrameContainerClick}
-            >
-              <b className="relative capitalize">shop</b>
-            </div>
-            <div
-              className="flex-1 flex flex-row items-center justify-center p-2.5 cursor-pointer"
-              onClick={onFrameContainerClick1}
-            >
-              <b className="relative capitalize">blog</b>
-            </div>
-            <div
-              className="flex-1 flex flex-row items-center justify-center p-2.5 cursor-pointer"
-              onClick={onFrameContainerClick2}
-            >
-              <b className="relative capitalize">contact</b>
-            </div>
-          </div>
-        </div>
-        <div className="flex-1 flex flex-row items-center justify-end gap-[22px] font-rubik">
-          <button
-            className="cursor-pointer [border:none] py-2.5 px-[26px] bg-sandybrown rounded-7xl flex flex-row items-center justify-center gap-[15px]"
-            onClick={onSearchClick}
-          >
-            <b className="relative text-sm capitalize font-rubik text-grayscale-white text-left">
-              log in
-            </b>
-            <img
-              className="w-6 relative rounded-3xs h-6 overflow-hidden shrink-0 hidden"
-              alt=""
-              src="/search.svg"
-            />
-          </button>
-          <div
-            className="rounded-7xl bg-darkorange-800 flex flex-row items-center justify-center py-2.5 px-[26px] gap-[15px] cursor-pointer"
-            onClick={onBasketContainerClick}
-          >
-            <b className="relative capitalize">basket (0)</b>
-            <img
-              className="w-6 relative h-6 overflow-hidden shrink-0"
-              alt=""
-              src="/shopping-cart.svg"
-            />
-          </div>
-        </div>
-      </div>
+     <Navbar/>
       <div className="absolute top-[165px] left-[470px] w-[482px] flex flex-col items-center justify-center text-center text-16xl text-darkorange-100 font-pacifico">
         <div className="w-[247px] flex flex-row items-center justify-center">
           <div className="flex-1 relative leading-[52.5px] capitalize">
@@ -259,11 +152,9 @@ const ABOUT = () => {
       <div className="absolute top-[2338px] left-[0px] w-[1440px] h-[263px] text-lg font-pacifico">
         <div
           className="absolute top-[0px] left-[64px] w-[157px] h-12 cursor-pointer"
-          onClick={onCandyTextClick}
         >
           <div
             className="absolute top-[0px] left-[0px] w-[157px] h-12 cursor-pointer"
-            onClick={onCandyTextClick}
           >
             <div className="absolute top-[0px] left-[36px] w-8 h-[22px]" />
             <div className="absolute top-[12px] left-[0px] w-[157px] h-9">
