@@ -132,7 +132,7 @@ router.get('/verify', (req, res) => {
 
   if (!token) {
       return res.status(401).json({ message: 'Token missing' });
-  }
+  } 
 
   const decoded = verifyToken(token, "yourSecretKey" );
 

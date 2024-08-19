@@ -20,16 +20,20 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/register`, formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/register`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       const data = response.data;
 
       if (data.success) {
-        Cookies.set('token', data.token); // Store the token in a cookie
+        Cookies.set("token", data.token); // Store the token in a cookie
         toast.success(data.message);
         router.push("/"); // Redirect to the home page
       } else {
@@ -44,17 +48,30 @@ const Register = () => {
   return (
     <div className="flex min-h-screen bg-gray-100">
       <div className="w-1/2 hidden md:block relative">
-        <img src="/bb.png" alt="Bakery" className="w-full h-full object-cover" />
+        <img
+          src="/bb.png"
+          alt="Bakery"
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-black opacity-40"></div>
       </div>
       <div className="w-full md:w-1/2 flex items-center justify-center p-8">
         <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full relative z-10">
           <div className="text-center mb-6">
-            <img src="/logo.png" alt="Bakery Logo" className="mx-auto w-40 h-40 object-contain" />
-            <h2 className="text-2xl font-bold text-gray-800">Create an Account</h2>
+            <img
+              src="/logo.png"
+              alt="Bakery Logo"
+              className="mx-auto w-40 h-40 object-contain"
+            />
+            <h2 className="text-2xl font-bold text-gray-800">
+              Create an Account
+            </h2>
           </div>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <div className="relative mb-4 w-full">
+          <form
+            onSubmit={handleSubmit}
+            className="max-w-md mx-auto p-6 rounded-lg flex flex-col gap-6"
+          >
+            <div className="relative">
               <input
                 id="username"
                 name="username"
@@ -62,17 +79,18 @@ const Register = () => {
                 placeholder=" "
                 value={formData.username}
                 onChange={handleChange}
-                className="peer w-full px-4 py-2 border rounded-lg focus:outline-none"
+                className="peer w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 required
               />
               <label
                 htmlFor="username"
-                className="absolute left-4 top-1/2 px-2 -translate-y-7 z-50 bg-white text-gray-500 text-md font-medium transition-transform duration-300 transform origin-top-left peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:bg-white peer-focus:z-50"
+                className="absolute left-4 top-1/2 px-2 -translate-y-7 z-10 bg-white text-gray-500 text-sm font-medium transition-transform duration-300 transform origin-top-left peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:bg-white peer-focus:px-1"
               >
                 User Name
               </label>
             </div>
-            <div className="relative mb-4 w-full">
+
+            <div className="relative">
               <input
                 id="email"
                 name="email"
@@ -80,17 +98,18 @@ const Register = () => {
                 placeholder=" "
                 value={formData.email}
                 onChange={handleChange}
-                className="peer w-full px-4 py-2 border rounded-lg focus:outline-none"
+                className="peer w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 required
               />
               <label
                 htmlFor="email"
-                className="absolute left-4 top-1/2 px-2 -translate-y-7 z-50 bg-white text-gray-500 text-md font-medium transition-transform duration-300 transform origin-top-left peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:bg-white peer-focus:z-50"
+                className="absolute left-4 top-1/2 px-2 -translate-y-7 z-10 bg-white text-gray-500 text-sm font-medium transition-transform duration-300 transform origin-top-left peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:bg-white peer-focus:px-1"
               >
                 Email
               </label>
             </div>
-            <div className="relative mb-6 w-full">
+
+            <div className="relative mb-6">
               <input
                 id="password"
                 name="password"
@@ -98,16 +117,17 @@ const Register = () => {
                 placeholder=" "
                 value={formData.password}
                 onChange={handleChange}
-                className="peer w-full px-4 py-2 border rounded-lg focus:outline-none"
+                className="peer w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 required
               />
               <label
                 htmlFor="password"
-                className="absolute left-4 top-1/2 px-2 -translate-y-7 z-50 bg-white text-gray-500 text-md font-medium transition-transform duration-300 transform origin-top-left peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:bg-white peer-focus:z-50"
+                className="absolute left-4 top-1/2 px-2 -translate-y-7 z-10 bg-white text-gray-500 text-sm font-medium transition-transform duration-300 transform origin-top-left peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:-translate-y-7 peer-focus:scale-90 peer-focus:bg-white peer-focus:px-1"
               >
                 Password
               </label>
             </div>
+
             <button
               type="submit"
               className="w-full bg-yellow-400 text-white py-2 rounded-lg hover:bg-yellow-500 transition duration-300"
